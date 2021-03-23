@@ -14,6 +14,10 @@ namespace DevIO.App.ViewModels
         public Guid Id { get; set; }
 
         [Required]
+        [DisplayName("Fornecedor")]
+        public Guid FornecedorId { get; set; }
+
+        [Required]
         [StringLength(200, ErrorMessage = "O Campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Nome { get; set; }
 
@@ -22,7 +26,7 @@ namespace DevIO.App.ViewModels
         [StringLength(200, ErrorMessage = "O Campo {0} precisa ter entre {2} e {1} caracteres", MinimumLength = 2)]
         public string Descricao { get; set; }
 
-        public IFormFile ImagemUpload { get; set; }
+        //public IFormFile ImagemUpload { get; set; }
 
         public string Imagem { get; set; }
 

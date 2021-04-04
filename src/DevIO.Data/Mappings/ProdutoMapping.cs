@@ -1,9 +1,6 @@
 ﻿using DevIO.Business.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace DevIO.Data.Mappings
 {
@@ -11,21 +8,21 @@ namespace DevIO.Data.Mappings
     {
         public void Configure(EntityTypeBuilder<Produto> builder)
         {
-            builder.ToTable("Produtos");
+            builder.HasKey(p => p.Id);
 
-            builder.HasKey(a => a.Id);
-
-            builder.Property(a => a.Nome)
+            builder.Property(p => p.Nome)
                 .IsRequired()
                 .HasColumnType("varchar(200)");
 
-            builder.Property(a => a.Descricao)
+            builder.Property(p => p.Descricao)
                 .IsRequired()
                 .HasColumnType("varchar(1000)");
 
-            builder.Property(a => a.Imagem)
+            builder.Property(p => p.Imagem)
                 .IsRequired()
                 .HasColumnType("varchar(100)");
+
+            builder.ToTable("Produtos");
         }
     }
 }

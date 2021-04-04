@@ -4,7 +4,7 @@
     ViewData["Title"] = "Editar " + Model.Nome;
 }
 
-<h3 style="padding-top: 50px">@ViewData["Title"]</h3>
+<h4 style="padding-top: 30px">@ViewData["Title"] </h4>
 <hr />
 <div class="row">
     <div class="col-md-10">
@@ -14,7 +14,7 @@
             <input type="hidden" asp-for="Id" />
 
             <div class="form-group">
-                <label asp-for="Fornecedor" class="control-label"></label><br />
+                <label asp-for="FornecedorId" class="control-label"></label><br />
                 <label><b>@Model.Fornecedor.Nome</b></label>
             </div>
 
@@ -29,14 +29,14 @@
                 <span asp-validation-for="Descricao" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label>Imagem Atual</label></br>
-                <img src="~/Imagens/@Model.Imagem" alt="@Model.Imagem" style="height: 100px" />
+                <label>Imagem Atual</label><br />
+                <img src="~/imagens/@Model.Imagem" alt="@Model.Imagem" style="width: 70px; height: 100px" />
             </div>
 
             <div class="form-group">
                 <label asp-for="ImagemUpload" class="control-label"></label>
                 <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="ImagemUpload" asp-for="ImagemUpload" />
+                    <input type="file" class="custom-file-input" id="ImagemUpload" asp-for="ImagemUpload">
                     <label data-browse="Procurar" style="width: 400px" class="custom-file-label" for="ImagemUpload"></label>
                     <label style="display: none" id="img_nome"></label>
                 </div>
@@ -60,8 +60,10 @@
     </div>
 </div>
 
+
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 
     <script>
         $("#ImagemUpload").change(function () {
